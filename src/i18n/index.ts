@@ -1,0 +1,278 @@
+export type Lang = "pl" | "en";
+
+const pl = {
+  appName: "ProdMed",
+  tagline: "Medytacja produktywna w spacerze",
+  laboratorium: "Laboratorium postcognitive.pl",
+
+  "home.greeting": "Z czym dziś idziesz?",
+  "mode.problem": "Problem",
+  "mode.problem.desc": "Jedno pytanie biznesowe albo decyzja. Wychodzisz z pytaniem, wracasz ze zdaniem.",
+  "mode.insight": "Wgląd",
+  "mode.insight.desc": "Idea, temat, pytanie do siebie. Kontemplacja w ruchu.",
+  "mode.reset": "Reset",
+  "mode.reset.desc": "Sam spacer i oddech. Bez problemu, bez celu.",
+  "home.lessons": "Lekcje",
+  "home.lessonProgress": "przeczytane {done} z 6",
+  "home.recent": "Ostatnie spacery",
+  "home.recent.empty": "Jeszcze nic tu nie ma. Pierwszy spacer przed tobą.",
+  "home.drift": "dryf",
+  "home.resume": "Masz niedokończony spacer.",
+  "home.resume.cta": "Wróć do sesji",
+  "home.resume.discard": "Porzuć",
+
+  "nav.method": "Metoda",
+  "nav.lessons": "Lekcje",
+  "nav.problems": "Wątki",
+  "nav.settings": "Ustawienia",
+
+  "load.title.problem": "Załadunek",
+  "load.title.insight": "Załadunek",
+  "load.title.reset": "Przed wyjściem",
+  "load.threads": "Wątki",
+  "load.newThread": "Nowy wątek",
+  "load.question": "Pytanie (jedno)",
+  "load.question.ph": "Jak zrobić X przy ograniczeniu Y?",
+  "load.idea": "Idea albo pytanie do siebie",
+  "load.idea.ph": "Czym jest dla mnie…?",
+  "load.nextStep": "Pytanie następnego kroku",
+  "load.nextStep.hint": "Najmniejsze pytanie, które posuwa całość.",
+  "load.variables": "Zmienne (opcjonalnie)",
+  "load.variables.hint": "Co wiesz · co ogranicza · czego nie wiesz.",
+  "load.duration": "Długość",
+  "load.duration.open": "otwarta",
+  "load.min": "min",
+  "load.mic": "Mikrofon do notatek głosowych",
+  "load.mic.check": "Sprawdź",
+  "load.mic.ok": "działa",
+  "load.mic.denied": "brak zgody — zostają znaczniki",
+  "load.anchorNote": "Pierwsze minuty to sama kotwica: krok i oddech. Pytanie samo przyjdzie.",
+  "load.start": "Wychodzę",
+  "load.carried": "Z poprzedniego spaceru",
+
+  "phase.anchor": "kotwica",
+  "phase.work": "praca",
+  "phase.rest": "spoczynek",
+  "phase.consolidate": "domknięcie",
+  "session.anchorHint": "krok · oddech · nic więcej",
+  "session.workHint": "przytrzymaj — nagrasz · stuknij — znacznik",
+  "session.restHint": "pozwól osiąść",
+  "session.recording": "nagrywam…",
+  "session.savedMarker": "znacznik zapisany",
+  "session.savedVoice": "nagranie zapisane",
+  "session.end": "Kończę",
+  "session.lock": "Blokada dotyku",
+  "session.unlockHold": "przytrzymaj, by odblokować",
+  "session.insights": "wglądy",
+
+  "cons.title": "Domknięcie",
+  "cons.insights": "Wglądy",
+  "cons.marker": "znacznik",
+  "cons.sentence": "Jedno zdanie: co z tego spaceru zostaje?",
+  "cons.sentence.ph": "Dziś ustalone: …",
+  "cons.nextStep": "Pytanie na następny spacer (opcjonalnie)",
+  "cons.save": "Zapisz",
+  "cons.drift": "Bez wyniku — dryf",
+  "cons.driftNote": "Dryf to informacja, nie porażka. Uczciwy zapis się liczy.",
+  "cons.saved": "Zapisano.",
+  "cons.backHome": "Wracam na start",
+
+  "problems.title": "Wątki",
+  "problems.empty": "Wątek założysz przy załadunku spaceru.",
+  "problems.walks": "spacery: {n}",
+  "problems.status.active": "otwarty",
+  "problems.status.resolved": "rozwiązany",
+  "problems.status.parked": "odłożony",
+  "problem.result": "Wynik",
+  "problem.next": "Dalej",
+  "problem.noResult": "dryf — bez wyniku",
+  "problem.resolve": "Oznacz jako rozwiązany",
+  "problem.park": "Odłóż",
+  "problem.reopen": "Otwórz ponownie",
+  "problem.delete": "Usuń wątek",
+  "problem.deleteConfirm": "Na pewno? Stuknij ponownie, by usunąć.",
+  "problem.walkMin": "{n} min",
+
+  "lessons.title": "Lekcje",
+  "lessons.intro": "Sześć krótkich lekcji. Jedna na tydzień wystarczy — metoda rośnie od spodu, nie od teorii.",
+  "lesson.mark": "Zastosuję na spacerze",
+  "lesson.done": "przeczytana",
+
+  "settings.title": "Ustawienia",
+  "settings.language": "Język",
+  "settings.durations": "Sesja",
+  "settings.anchor": "Kotwica (min)",
+  "settings.bell": "Dzwonek co (min)",
+  "settings.bell.off": "bez dzwonka",
+  "settings.rest": "Spoczynek po wglądzie (s)",
+  "settings.data": "Twoje dane",
+  "settings.exportMd": "Eksport Markdown (Obsidian)",
+  "settings.exportJson": "Eksport JSON (kopia)",
+  "settings.import": "Import JSON",
+  "settings.import.bad": "To nie wygląda na kopię ProdMed.",
+  "settings.import.ok": "Wczytano: wątki {p}, spacery {s}.",
+  "settings.wipe": "Usuń wszystkie dane",
+  "settings.wipeConfirm": "Na pewno? Stuknij ponownie — usunięcie jest nieodwracalne.",
+  "settings.privacy": "Prywatność",
+  "settings.privacy.text":
+    "Wszystko zostaje na tym urządzeniu. Bez kont, bez analityki, bez wysyłania czegokolwiek. Nagrania i notatki są tylko tutaj — eksport należy do ciebie.",
+  "settings.persist.granted": "pamięć trwała: przyznana",
+  "settings.persist.denied": "pamięć trwała: brak — dodaj appkę do ekranu początkowego",
+  "settings.installHint":
+    "Dodaj ProdMed do ekranu początkowego. Na iOS dane stron nieużywanych ~7 dni mogą zostać usunięte — instalacja to wyłącza.",
+
+  "audio.unsupported": "brak nagrywania w tej przeglądarce",
+  "common.back": "Wróć",
+  "common.cancel": "Anuluj",
+} as const;
+
+export type MsgKey = keyof typeof pl;
+
+const en: Record<MsgKey, string> = {
+  appName: "ProdMed",
+  tagline: "Productive meditation, on foot",
+  laboratorium: "A postcognitive.pl Laboratory artifact",
+
+  "home.greeting": "What are you walking with today?",
+  "mode.problem": "Problem",
+  "mode.problem.desc": "One business question or decision. Leave with a question, return with a sentence.",
+  "mode.insight": "Insight",
+  "mode.insight.desc": "An idea, a theme, a question for yourself. Contemplation in motion.",
+  "mode.reset": "Reset",
+  "mode.reset.desc": "Just the walk and the breath. No problem, no goal.",
+  "home.lessons": "Lessons",
+  "home.lessonProgress": "{done} of 6 read",
+  "home.recent": "Recent walks",
+  "home.recent.empty": "Nothing here yet. Your first walk is ahead of you.",
+  "home.drift": "drift",
+  "home.resume": "You have an unfinished walk.",
+  "home.resume.cta": "Return to session",
+  "home.resume.discard": "Discard",
+
+  "nav.method": "Method",
+  "nav.lessons": "Lessons",
+  "nav.problems": "Threads",
+  "nav.settings": "Settings",
+
+  "load.title.problem": "Loading up",
+  "load.title.insight": "Loading up",
+  "load.title.reset": "Before you go",
+  "load.threads": "Threads",
+  "load.newThread": "New thread",
+  "load.question": "The question (one)",
+  "load.question.ph": "How to do X within constraint Y?",
+  "load.idea": "An idea or a question for yourself",
+  "load.idea.ph": "What does … mean to me?",
+  "load.nextStep": "Next-step question",
+  "load.nextStep.hint": "The smallest question that moves the whole.",
+  "load.variables": "Variables (optional)",
+  "load.variables.hint": "What you know · what constrains · what you don't know.",
+  "load.duration": "Length",
+  "load.duration.open": "open",
+  "load.min": "min",
+  "load.mic": "Microphone for voice notes",
+  "load.mic.check": "Test",
+  "load.mic.ok": "works",
+  "load.mic.denied": "no permission — markers still work",
+  "load.anchorNote": "The first minutes are pure anchor: step and breath. The question will come on its own.",
+  "load.start": "Heading out",
+  "load.carried": "Carried from the last walk",
+
+  "phase.anchor": "anchor",
+  "phase.work": "work",
+  "phase.rest": "rest",
+  "phase.consolidate": "closing",
+  "session.anchorHint": "step · breath · nothing else",
+  "session.workHint": "hold — record · tap — marker",
+  "session.restHint": "let it settle",
+  "session.recording": "recording…",
+  "session.savedMarker": "marker saved",
+  "session.savedVoice": "recording saved",
+  "session.end": "I'm done",
+  "session.lock": "Touch lock",
+  "session.unlockHold": "hold to unlock",
+  "session.insights": "insights",
+
+  "cons.title": "Closing",
+  "cons.insights": "Insights",
+  "cons.marker": "marker",
+  "cons.sentence": "One sentence: what stays from this walk?",
+  "cons.sentence.ph": "Settled today: …",
+  "cons.nextStep": "Question for the next walk (optional)",
+  "cons.save": "Save",
+  "cons.drift": "No result — drift",
+  "cons.driftNote": "Drift is information, not failure. The honest record counts.",
+  "cons.saved": "Saved.",
+  "cons.backHome": "Back to start",
+
+  "problems.title": "Threads",
+  "problems.empty": "You create a thread while loading up a walk.",
+  "problems.walks": "walks: {n}",
+  "problems.status.active": "open",
+  "problems.status.resolved": "resolved",
+  "problems.status.parked": "parked",
+  "problem.result": "Result",
+  "problem.next": "Next",
+  "problem.noResult": "drift — no result",
+  "problem.resolve": "Mark resolved",
+  "problem.park": "Park",
+  "problem.reopen": "Reopen",
+  "problem.delete": "Delete thread",
+  "problem.deleteConfirm": "Sure? Tap again to delete.",
+  "problem.walkMin": "{n} min",
+
+  "lessons.title": "Lessons",
+  "lessons.intro": "Six short lessons. One a week is enough — the method grows from the ground up, not from theory.",
+  "lesson.mark": "I'll apply this on a walk",
+  "lesson.done": "read",
+
+  "settings.title": "Settings",
+  "settings.language": "Language",
+  "settings.durations": "Session",
+  "settings.anchor": "Anchor (min)",
+  "settings.bell": "Bell every (min)",
+  "settings.bell.off": "no bell",
+  "settings.rest": "Rest after insight (s)",
+  "settings.data": "Your data",
+  "settings.exportMd": "Export Markdown (Obsidian)",
+  "settings.exportJson": "Export JSON (backup)",
+  "settings.import": "Import JSON",
+  "settings.import.bad": "This doesn't look like a ProdMed backup.",
+  "settings.import.ok": "Imported: threads {p}, walks {s}.",
+  "settings.wipe": "Delete all data",
+  "settings.wipeConfirm": "Sure? Tap again — deletion is irreversible.",
+  "settings.privacy": "Privacy",
+  "settings.privacy.text":
+    "Everything stays on this device. No accounts, no analytics, nothing is ever sent anywhere. Recordings and notes live only here — the export is yours.",
+  "settings.persist.granted": "persistent storage: granted",
+  "settings.persist.denied": "persistent storage: not granted — add the app to your home screen",
+  "settings.installHint":
+    "Add ProdMed to your home screen. On iOS, site data unused for ~7 days may be evicted — installing prevents that.",
+
+  "audio.unsupported": "recording unavailable in this browser",
+  "common.back": "Back",
+  "common.cancel": "Cancel",
+};
+
+const dicts: Record<Lang, Record<MsgKey, string>> = { pl, en };
+
+let current: Lang = "pl";
+
+export function setLang(lang: Lang): void {
+  current = lang;
+  document.documentElement.lang = lang;
+}
+
+export function getLang(): Lang {
+  return current;
+}
+
+export function detectLang(): Lang {
+  return navigator.language?.toLowerCase().startsWith("pl") ? "pl" : "en";
+}
+
+export function t(key: MsgKey, vars?: Record<string, string | number>): string {
+  let s: string = dicts[current][key] ?? key;
+  if (vars) for (const [k, v] of Object.entries(vars)) s = s.replace(`{${k}}`, String(v));
+  return s;
+}
